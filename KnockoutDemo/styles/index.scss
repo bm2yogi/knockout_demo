@@ -1,0 +1,19 @@
+﻿$color_background : #336699;
+$color_text : #d5d5d5;
+
+$default_padding : 20px;
+$default_fontsize : .9em;
+
+body
+{
+    padding:$default_padding;
+    background-color:$color_background;
+    color:$color_text;
+    font-size:$default_fontsize;
+    font-family:Verdana;
+}
+
+button
+{
+    font-size:$default_fontsize;
+}

@@ -1,0 +1,5 @@
+*Resharper*
+bin
+obj
+*.user
+*.suo
