@@ -17,5 +17,6 @@ var behaviors = {
 $(document).ready(function () {
     viewModel = ko.mapping.fromJS(_data);
     viewModel.onclick = behaviors.click;
+    viewModel.FullName = ko.dependentObservable(function () {return this.FirstName() + " " + this.LastName() }, viewModel);
     ko.applyBindings(viewModel);
 });
