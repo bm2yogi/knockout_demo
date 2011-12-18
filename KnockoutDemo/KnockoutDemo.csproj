@@ -64,6 +64,7 @@
     <Content Include="scripts\knockout.mapping-latest.js" />
     <Content Include="scripts\search.js" />
     <Content Include="scripts\searchresults.js" />
+    <Content Include="scripts\searchresults_sm.js" />
     <Content Include="search.html" />
     <Content Include="styles\default.min.css">
       <DependentUpon>default.scss</DependentUpon>

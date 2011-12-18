@@ -1,17 +1,13 @@
-﻿var viewModel = {
-    query: ko.observable('water'),
+﻿var viewModel = {};
 
-    search: function () {
-        $.getJSON('scripts/searchresults.js', this.showResults);
-    },
-
-    searchResults: ko.observableArray([]),
-
-    showResults: function (data) {
-        this.searchResults = ko.observableArray(data.Assets);
-    }
+viewModel.query = ko.observable('');
+viewModel.searchResults = ko.observableArray();
+viewModel.search = function () {
+    $.getJSON('scripts/searchresults_sm.js', function (data) {
+        ko.utils.arrayPushAll(viewModel.searchResults, data.Assets);
+    });
 };
 
 $(document).ready(function () {
-    ko.applyBindings(viewModel); 
+    ko.applyBindings(viewModel);
 });
