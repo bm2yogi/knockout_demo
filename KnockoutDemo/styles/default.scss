@@ -1,19 +1,63 @@
 ﻿$color_background : #336699;
 $color_text : #d5d5d5;
+$color_image_background: desaturate($color_background, 25%);
+$color_image_border: complement($color_text);
 
 $default_padding : 20px;
 $default_fontsize : .9em;
+$big_fontsize: $default_fontsize*1.7;
 
-body
+.defaultText
 {
-    padding:$default_padding;
-    background-color:$color_background;
     color:$color_text;
     font-size:$default_fontsize;
     font-family:Verdana;
 }
 
-button
+.heading
 {
-    font-size:$default_fontsize;
+    @extend .defaultText;
+    font-weight:bolder;
+    font-size:larger;
+    
+}
+
+.subheading
+{
+    @extend .defaultText;
+    font-size:larger; 
+}
+
+.caption
+{
+    @extend .defaultText;
+    font-size:smaller;
+}
+
+
+body
+{
+    padding:$default_padding;
+    background-color:$color_background;
+}
+
+.thumbnail
+{
+    background-color:$color_image_background;
+    padding:15px;
+    border-color:$color_image_border;
+    border-width:1px;
+    border-style:solid;
+    border-radius:25px;
+    margin:5px;
+    clear:right;
+}
+
+ul 
+{
+		list-style-type:none;
+        display:inline;
+    li .searchResults
+    {
+    }
 }
