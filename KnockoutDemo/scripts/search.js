@@ -16,7 +16,8 @@ viewModel.updateLightbox = function () {
 
 viewModel.search = function () {
     $.getJSON('scripts/searchresults_sm.js', function (data) {
-        var observableAssets = ko.mapping.fromJSON(data.Assets);
+        //var observableAssets = ko.mapping.fromJSON(data.Assets);
+        var observableAssets = (data.Assets);
         ko.utils.arrayPushAll(viewModel.searchResults, observableAssets);
     });
 };
