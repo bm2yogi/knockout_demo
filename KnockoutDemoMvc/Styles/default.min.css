@@ -1,0 +1,7 @@
+.defaultText,.heading,.subheading,.caption{color:#d5d5d5;font-size:.9em;font-family:Verdana}
+.heading{font-weight:bolder;font-size:larger}
+.subheading{font-size:larger}
+.caption{font-size:smaller}
+body{padding:20px;background-color:#369}
+.thumbnail{background-color:#4d6680;padding:15px;border-color:#d5d5d5;border-width:1px;border-style:solid;border-radius:25px;margin:5px;clear:right}
+ul{list-style-type:none;display:inline}

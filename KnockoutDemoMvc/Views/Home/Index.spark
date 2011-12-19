@@ -1,0 +1,7 @@
+<viewdata model="Models.CustomerFormData" />
+
+<fieldset>
+  <legend>Customer Info</legend>
+${Html.EditorForModel(Model)}
+<button>Save</button>
+</fieldset>

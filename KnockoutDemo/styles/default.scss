@@ -41,13 +41,18 @@ body
     background-color:$color_background;
 }
 
+@mixin bordered
+{
+    border-color:$color_image_border;
+    border-width:1px;
+    border-style:solid;
+}
+
 .thumbnail
 {
     background-color:$color_image_background;
     padding:15px;
-    border-color:$color_image_border;
-    border-width:1px;
-    border-style:solid;
+	@include bordered;
     border-radius:25px;
     margin:5px;
     clear:right;
@@ -60,4 +65,30 @@ ul
     li .searchResults
     {
     }
+}
+
+.lightboxButton 
+{
+	height:25px;
+	width:25px;
+	@include bordered;
+
+	background-position:center;
+	background-repeat:no-repeat;
+	background-image:url('http://www.thinkstockphotos.com/images/light_bulb_off.png');
+
+	&:hover
+	{
+		background-image:url('http://www.thinkstockphotos.com/images/light_bulb_plus.png');
+	}
+
+	.active
+	{
+		background-image:url('http://www.thinkstockphotos.com/images/light_bulb_plus.png');
+
+		&:hover
+		{
+			background-image:url('http://www.thinkstockphotos.com/images/light_bulb_minus.png');
+		}
+	}
 }

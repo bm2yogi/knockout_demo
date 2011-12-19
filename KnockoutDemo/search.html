@@ -9,15 +9,20 @@
     <script src="Scripts/search.js" type="text/javascript"></script>
 </head>
 <body>
-    <h1 class="heading">Image Search</h1>
+    <h1 class="heading">
+        Image Search</h1>
     <input type="text" data-bind="value:query" />
-    <button data-bind="click:search">Search</button>
+    <button data-bind="click:search">
+        Search</button>
     <hr />
     <span class="subheading">Search Results for <span data-bind="text:query" /></span>
     <ul class="searchResults" data-bind="foreach:searchResults">
         <li>
             <img class="thumbnail" data-bind="attr:{src:UrlThumb,alt:Caption,title:Caption}" />
-            <div class="caption" data-bind="text:Title"></div></li>
+            <div class="caption" data-bind="text:Title">
+            </div>
+            <div><button class="lightboxButton" data-bind="click:$parent.updateLightbox"/></div>
+        </li>
     </ul>
 </body>
 </html>

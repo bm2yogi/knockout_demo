@@ -1,13 +1,19 @@
-﻿var viewModel = {};
+﻿$(document).ready(function () {
+    ko.applyBindings(viewModel);
+});
 
-viewModel.query = ko.observable('');
+var viewModel = {};
+
+viewModel.query = ko.observable();
+
 viewModel.searchResults = ko.observableArray();
+
+viewModel.updateLightbox = function () {
+    alert(this.Caption + ((this.InLightbox) ? ' removed.' : ' added.'));
+}
+
 viewModel.search = function () {
     $.getJSON('scripts/searchresults_sm.js', function (data) {
         ko.utils.arrayPushAll(viewModel.searchResults, data.Assets);
     });
 };
-
-$(document).ready(function () {
-    ko.applyBindings(viewModel);
-});
