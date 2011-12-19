@@ -9,11 +9,16 @@ viewModel.query = ko.observable();
 viewModel.searchResults = ko.observableArray();
 
 viewModel.updateLightbox = function () {
-    alert(this.Caption + ((this.InLightbox) ? ' removed.' : ' added.'));
+    var assetToUpdate = ko.dataFor(this)
+    assetToUpdate.InLightbox = !assetToUpdate.InLightbox;
+    //$.post('lightbox/addToLightbox', assetToUpdate.AssetId, function(){ alert('yay')});
 }
 
 viewModel.search = function () {
     $.getJSON('scripts/searchresults_sm.js', function (data) {
-        ko.utils.arrayPushAll(viewModel.searchResults, data.Assets);
+        var observableAssets = ko.mapping.fromJSON(data.Assets);
+        ko.utils.arrayPushAll(viewModel.searchResults, observableAssets);
     });
 };
+
+$(document).on('click', '.lightboxButton', viewModel.updateLightbox);

@@ -53,17 +53,20 @@ body
     background-color:$color_image_background;
     padding:15px;
 	@include bordered;
-    border-radius:25px;
+    border-radius:0px;
     margin:5px;
     clear:right;
 }
 
 ul 
 {
-		list-style-type:none;
-        display:inline;
+	list-style-type:none;
+    display:inline;
+
     li .searchResults
     {
+		display:inline;
+		float:left;
     }
 }
 
@@ -82,7 +85,7 @@ ul
 		background-image:url('http://www.thinkstockphotos.com/images/light_bulb_plus.png');
 	}
 
-	.active
+	&.active
 	{
 		background-image:url('http://www.thinkstockphotos.com/images/light_bulb_plus.png');
 
