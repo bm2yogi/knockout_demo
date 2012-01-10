@@ -1,5 +1,5 @@
-﻿$color_background : #336699;
-$color_text : #d5d5d5;
+﻿$color_background : #E5E5E5;
+$color_text : #353535;
 $color_image_background: desaturate($color_background, 25%);
 $color_image_border: complement($color_text);
 
@@ -31,7 +31,7 @@ $big_fontsize: $default_fontsize*1.7;
 .caption
 {
     @extend .defaultText;
-    font-size:smaller;
+    font-size:.7em;
 }
 
 
@@ -41,7 +41,7 @@ body
     background-color:$color_background;
 }
 
-@mixin bordered
+@mixin bordered($radius:15px)
 {
     border-color:$color_image_border;
     border-width:1px;
@@ -52,8 +52,7 @@ body
 {
     background-color:$color_image_background;
     padding:15px;
-	@include bordered;
-    border-radius:0px;
+	@include bordered();
     margin:5px;
     clear:right;
 }
@@ -74,15 +73,15 @@ ul
 {
 	height:25px;
 	width:25px;
-	@include bordered;
 
 	background-position:center;
 	background-repeat:no-repeat;
 	background-image:url('http://www.thinkstockphotos.com/images/light_bulb_off.png');
 
 	&:hover
-	{
+	{	
 		background-image:url('http://www.thinkstockphotos.com/images/light_bulb_plus.png');
+		cursor:pointer;
 	}
 
 	&.active
@@ -92,6 +91,7 @@ ul
 		&:hover
 		{
 			background-image:url('http://www.thinkstockphotos.com/images/light_bulb_minus.png');
+			cursor:pointer;
 		}
 	}
 }

@@ -5,7 +5,6 @@
 var viewModel = {};
 
 viewModel.query = ko.observable();
-
 viewModel.searchResults = ko.observableArray();
 
 viewModel.updateLightbox = function () {
@@ -16,10 +15,20 @@ viewModel.updateLightbox = function () {
 
 viewModel.search = function () {
     $.getJSON('scripts/searchresults_sm.js', function (data) {
-        //var observableAssets = ko.mapping.fromJSON(data.Assets);
         var observableAssets = (data.Assets);
-        ko.utils.arrayPushAll(viewModel.searchResults, observableAssets);
+
+        for (var i = 0; i < data.Assets.length; i++) {
+            viewModel.searchResults.push(ko.observable(data.Assets[i]));
+        }
+
+        //ko.utils.arrayPushAll(viewModel.searchResults, observableAssets);
     });
 };
+
+        ko.bindingHandlers.mybinding =  {
+
+            init: function (element, valueAccessor, allBindingsAccessor, viewModel) { alert('init called'); },
+            update: function (element, valueAccessor, allBindingsAccessor, viewModel) { alert('update called'); }
+        };
 
 $(document).on('click', '.lightboxButton', viewModel.updateLightbox);
