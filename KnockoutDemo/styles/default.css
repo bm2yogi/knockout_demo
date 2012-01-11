@@ -19,11 +19,11 @@ body {
 
 .thumbnail {
   background-color: #e5e5e5;
-  padding: 15px;
+  padding: 1px;
   border-color: #353535;
   border-width: 1px;
   border-style: solid;
-  margin: 5px;
+  margin: 0px;
   clear: right; }
 
 ul {

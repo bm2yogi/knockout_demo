@@ -51,9 +51,9 @@ body
 .thumbnail
 {
     background-color:$color_image_background;
-    padding:15px;
+    padding:1px;
 	@include bordered();
-    margin:5px;
+    margin:0px;
     clear:right;
 }
 

@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     ko.applyBindings(viewModel);
+    $(document).on('click', '.lightboxButton', viewModel.updateLightbox);
 });
 
 var viewModel = {};
@@ -9,7 +10,7 @@ viewModel.searchResults = ko.observableArray();
 
 viewModel.updateLightbox = function () {
     var assetToUpdate = ko.dataFor(this)
-    assetToUpdate.InLightbox = !assetToUpdate.InLightbox;
+    assetToUpdate.InLightbox(!assetToUpdate.InLightbox());
     //$.post('lightbox/addToLightbox', assetToUpdate.AssetId, function(){ alert('yay')});
 }
 
@@ -18,17 +19,22 @@ viewModel.search = function () {
         var observableAssets = (data.Assets);
 
         for (var i = 0; i < data.Assets.length; i++) {
-            viewModel.searchResults.push(ko.observable(data.Assets[i]));
+            var observable = ko.mapping.fromJS(data.Assets[i]);
+            viewModel.searchResults.push(observable);
         }
 
-        //ko.utils.arrayPushAll(viewModel.searchResults, observableAssets);
     });
 };
 
-        ko.bindingHandlers.mybinding =  {
+ko.bindingHandlers.transform = {
 
-            init: function (element, valueAccessor, allBindingsAccessor, viewModel) { alert('init called'); },
-            update: function (element, valueAccessor, allBindingsAccessor, viewModel) { alert('update called'); }
-        };
+//    init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+//        var val = valueAccessor();
+//        $(element).text((val) ? "(In Lightbox)" : "(Not In Lightbox)");
+//    },
 
-$(document).on('click', '.lightboxButton', viewModel.updateLightbox);
+    update: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+        var val = valueAccessor();
+        $(element).text((val()==true) ? "(In Lightbox)" : "(Not In Lightbox)");
+    }
+};
