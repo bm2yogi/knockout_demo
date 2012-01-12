@@ -1,11 +1,12 @@
-.defaultText,.heading,.subheading,.caption{color:#353535;font-size:.9em;font-family:Verdana}
+.defaultText,.heading,.subheading,.caption,body{color:#353535;font-size:.9em;font-family:Verdana}
 .heading{font-weight:bolder;font-size:larger}
 .subheading{font-size:larger}
 .caption{font-size:.7em}
 body{padding:20px;background-color:#e5e5e5}
-.thumbnail{background-color:#e5e5e5;padding:1px;border-color:#353535;border-width:1px;border-style:solid;margin:0;clear:right}
-ul{list-style-type:none;display:inline}
-ul li .searchResults{display:inline;float:left}
+select{width:170px}
+.thumbnail{background-color:#e5e5e5;padding:1px;margin:0;clear:right}
+ul.searchResults{list-style-type:none}
+ul.searchResults li{display:inline-block;border-color:#353535;border-width:1px;border-style:solid}
 .lightboxButton{height:25px;width:25px;background-position:center;background-repeat:no-repeat;background-image:url("http://www.thinkstockphotos.com/images/light_bulb_off.png")}
 .lightboxButton:hover{background-image:url("http://www.thinkstockphotos.com/images/light_bulb_plus.png");cursor:pointer}
 .lightboxButton.active{background-image:url("http://www.thinkstockphotos.com/images/light_bulb_plus.png")}

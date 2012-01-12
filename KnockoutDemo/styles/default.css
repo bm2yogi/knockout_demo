@@ -1,4 +1,4 @@
-.defaultText, .heading, .subheading, .caption {
+.defaultText, .heading, .subheading, .caption, body {
   color: #353535;
   font-size: 0.9em;
   font-family: Verdana; }
@@ -17,21 +17,22 @@ body {
   padding: 20px;
   background-color: #e5e5e5; }
 
+select {
+  width: 170px; }
+
 .thumbnail {
   background-color: #e5e5e5;
   padding: 1px;
-  border-color: #353535;
-  border-width: 1px;
-  border-style: solid;
   margin: 0px;
   clear: right; }
 
-ul {
-  list-style-type: none;
-  display: inline; }
-  ul li .searchResults {
-    display: inline;
-    float: left; }
+ul.searchResults {
+  list-style-type: none; }
+  ul.searchResults li {
+    display: inline-block;
+    border-color: #353535;
+    border-width: 1px;
+    border-style: solid; }
 
 .lightboxButton {
   height: 25px;

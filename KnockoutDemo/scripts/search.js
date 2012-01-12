@@ -1,12 +1,8 @@
-﻿$(document).ready(function () {
-    ko.applyBindings(viewModel);
-    $(document).on('click', '.lightboxButton', viewModel.updateLightbox);
-});
+﻿var viewModel = {};
 
-var viewModel = {};
-
-viewModel.query = ko.observable();
+viewModel.query = ko.observable('');
 viewModel.searchResults = ko.observableArray();
+viewModel.searchEnabled = ko.computed(function () { return viewModel.query().length > 0;});
 
 viewModel.updateLightbox = function () {
     var assetToUpdate = ko.dataFor(this)
@@ -15,26 +11,31 @@ viewModel.updateLightbox = function () {
 }
 
 viewModel.search = function () {
-    $.getJSON('scripts/searchresults_sm.js', function (data) {
-        var observableAssets = (data.Assets);
-
-        for (var i = 0; i < data.Assets.length; i++) {
-            var observable = ko.mapping.fromJS(data.Assets[i]);
-            viewModel.searchResults.push(observable);
-        }
-
-    });
+    viewModel.searchResults.removeAll();
+    $.getJSON('scripts/searchresults_sm.js',
+        function (data) {
+            ko.utils.arrayForEach(
+                data.Assets,
+                function (item) {
+                    viewModel.searchResults.push(ko.mapping.fromJS(item));
+                });
+        });
 };
 
 ko.bindingHandlers.transform = {
 
-//    init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
-//        var val = valueAccessor();
-//        $(element).text((val) ? "(In Lightbox)" : "(Not In Lightbox)");
-//    },
+    //    init: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+    //        var val = valueAccessor();
+    //        $(element).text((val) ? "(In Lightbox)" : "(Not In Lightbox)");
+    //    },
 
     update: function (element, valueAccessor, allBindingsAccessor, viewModel) {
         var val = valueAccessor();
-        $(element).text((val()==true) ? "(In Lightbox)" : "(Not In Lightbox)");
+        $(element).text((val()) ? "(In Lightbox)" : "(Not In Lightbox)");
     }
 };
+
+$(document).ready(function () {
+    ko.applyBindings(viewModel);
+    $(document).on('click', '.lightboxButton', viewModel.updateLightbox);
+});

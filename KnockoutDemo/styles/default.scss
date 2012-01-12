@@ -37,6 +37,7 @@ $big_fontsize: $default_fontsize*1.7;
 
 body
 {
+	@extend .defaultText;
     padding:$default_padding;
     background-color:$color_background;
 }
@@ -48,24 +49,27 @@ body
     border-style:solid;
 }
 
+select
+{
+	width:170px;
+}
+
 .thumbnail
 {
     background-color:$color_image_background;
     padding:1px;
-	@include bordered();
     margin:0px;
     clear:right;
 }
 
-ul 
+ul.searchResults
 {
 	list-style-type:none;
-    display:inline;
 
-    li .searchResults
+    li
     {
-		display:inline;
-		float:left;
+		display:inline-block;
+		@include bordered(0px);
     }
 }
 

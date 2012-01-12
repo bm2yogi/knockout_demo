@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="observables.htm" />
     <Content Include="scripts\contact.js" />
     <Content Include="scripts\contacts.js" />
     <Content Include="scripts\index.js" />
@@ -85,6 +86,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="observables.html.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="observables.html.designer.cs">
+      <DependentUpon>observables.html.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

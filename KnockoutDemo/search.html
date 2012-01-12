@@ -12,17 +12,17 @@
 <body>
     <h1 class="heading">Image Search</h1>
 
-    <input type="text" data-bind="value:query" />
-    <button data-bind="click:search">Search</button>
+    <input type="text" data-bind="value:query, valueUpdate: 'afterkeydown'" />
+    <button data-bind="click:search, enable:searchEnabled">Search</button>
 
     <hr />
 
-    <span class="subheading">Search Results for <span data-bind="text:query" /></span>
+    <p class="subheading">Search Results for <span data-bind="text:query" /></p>
 
     <ul class="searchResults" data-bind="foreach:searchResults">
         <li>
             <img class="thumbnail" data-bind="attr:{src:UrlThumb,alt:Caption,title:Caption}" />
-            <div class="caption" data-bind="{text:Title}">
+            <div class="caption" data-bind="{text:AssetId}">
             </div>
             <div><img class="lightboxButton" data-bind="css:{active:InLightbox}"></img><span class="caption" data-bind="transform:InLightbox" /></div>
         </li>
